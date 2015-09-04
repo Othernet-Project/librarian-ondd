@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-import librarian_ondd
+import librarian_ondd as pkg
 
 
 def read(fname):
@@ -9,13 +9,14 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-VERSION = librarian_ondd.__version__
+VERSION = pkg.__version__
 
 setup(
     name='librarian-ondd',
     version=VERSION,
     license='BSD',
-    packages=find_packages(),
+    packages=[pkg.__name__],
+    include_package_data=True,
     long_description=read('README.rst'),
     install_requires=[
         'librarian_core',
