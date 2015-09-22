@@ -32,7 +32,7 @@ def get_bitrate(status):
     return 0
 
 
-class Dashboard(DashboardPlugin):
+class ONDDDashboardPlugin(DashboardPlugin):
     # Translators, used as dashboard section title
     heading = _('Tuner settings')
     name = 'ondd'
