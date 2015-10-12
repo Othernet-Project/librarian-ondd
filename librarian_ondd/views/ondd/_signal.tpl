@@ -1,4 +1,4 @@
-<%namespace name="widgets" file="../_widgets.tpl"/>
+<%namespace name="widgets" file="/ui/widgets.tpl"/>
 
 <% snr_pct = h.perc_range(status['snr'], 0, 1.6) %>
 <% has_lock = h.yesno(status['has_lock'], h.SPAN(_('Yes'), _class='has-lock'), h.SPAN(_('No'), _class='no-lock')) %>

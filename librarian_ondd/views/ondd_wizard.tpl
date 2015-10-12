@@ -35,7 +35,3 @@ ${presets.body()}
     }
 </script>
 </%block>
-
-<%block name="extra_scripts">
-<script type="text/javascript" src="${assets['js/ondd']}"></script>
-</%block>

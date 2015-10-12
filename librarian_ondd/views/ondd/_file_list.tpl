@@ -1,4 +1,4 @@
-<%namespace name="widgets" file="../_widgets.tpl"/>
+<%namespace name="widgets" file="/ui/widgets.tpl"/>
 
 % if not files:
 ## Translators, shown on dashboard when no files are currently being downloaded
