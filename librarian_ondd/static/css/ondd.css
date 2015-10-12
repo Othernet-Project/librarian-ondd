@@ -1,0 +1,49 @@
+/*
+@import "outernet/mixins/colors";
+@import "outernet/mixins/fonts";
+@import "outernet/mixins/grid";
+@import "outernet/mixins/media_query";
+*/
+/* line 8, ../../../src/scss/ondd.scss */
+.ondd-status,
+.ondd-settings {
+  /*
+  @include col2;
+
+  @include phone-portrait-wide {
+    @include col1;
+  }
+
+  .bitrate, .lock, .service {
+    .label {
+      color: $sub;
+    }
+  }
+  */
+  /*
+  .no-lock {
+    color: $fire;
+  }
+
+  .has-lock {
+    color: $forest;
+  }
+  */
+}
+/* line 24, ../../../src/scss/ondd.scss */
+.ondd-status .progress,
+.ondd-settings .progress {
+  max-width: 100%;
+  width: 100%;
+}
+/* line 29, ../../../src/scss/ondd.scss */
+.ondd-status .progress .label,
+.ondd-settings .progress .label {
+  text-transform: uppercase;
+}
+
+/*
+.signal-status, .ondd-file-list {
+  @include col1;
+}
+*/
