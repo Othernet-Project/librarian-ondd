@@ -1,7 +1,7 @@
 <script type="text/template" id="satPresets">
     <p class="transponder-selection">
     ## Translators, label for select list that allows user to pick a satellite to tune into
-    <label for="transponders">${_('Satellite:')}</label>
+    <label for="transponders">${_('Satellite')}</label>
     <select name="preset" id="transponders" class="transponders">
         ## Translators, placeholder for satellite selection select list
         <option value="0">${_('Select a satellite')}</option>

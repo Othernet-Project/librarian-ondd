@@ -8,11 +8,11 @@ def initialize(supervisor):
     setup_wizard = supervisor.exts.setup_wizard
     setup_wizard.register('ondd',
                           setup_ondd_form,
-                          template='ondd_wizard.tpl',
+                          template='setup/step_ondd.tpl',
                           method='GET',
                           test=has_invalid_config)
     setup_wizard.register('ondd',
                           setup_ondd,
-                          template='ondd_wizard.tpl',
+                          template='setup/step_ondd.tpl',
                           method='POST',
                           test=has_invalid_config)
