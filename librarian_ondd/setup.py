@@ -2,8 +2,6 @@ import logging
 
 from bottle import request
 
-from librarian_setup.setup import setup_wizard
-
 from .forms import ONDDForm
 
 try:
@@ -22,14 +20,10 @@ def has_invalid_config():
     return not form.is_valid()
 
 
-@setup_wizard.register_step('ondd', template='ondd_wizard.tpl', method='GET',
-                            test=has_invalid_config)
 def setup_ondd_form():
     return dict(status=ipc.get_status(), form=ONDDForm())
 
 
-@setup_wizard.register_step('ondd', template='ondd_wizard.tpl', method='POST',
-                            test=has_invalid_config)
 def setup_ondd():
     form = ONDDForm(request.forms)
     if not form.is_valid():
