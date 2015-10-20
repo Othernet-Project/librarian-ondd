@@ -14,6 +14,6 @@ ${_('Tuner settings')}
 ${settings_form.body()}
 
 <%block name="extra_scripts">
-<script type="text/javascript" src="${assets['js/ondd']}"></script>
+<script type="text/javascript" src="${assets['vendor/ondd']}"></script>
 </%block>
 

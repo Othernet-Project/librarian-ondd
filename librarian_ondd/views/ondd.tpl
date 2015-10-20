@@ -1,4 +1,3 @@
-<%inherit file="_dashboard_section.tpl"/>
 <%namespace name="settings_form" file="ondd/_settings_form.tpl"/>
 <%namespace name="signal" file="ondd/_signal.tpl"/>
 <%namespace name="file_list" file="ondd/_file_list.tpl"/>
@@ -18,4 +17,3 @@
     ${presets.body()}
 </div>
 
-<script type="text/javascript" src="${assets['js/ondd']}"></script>
