@@ -1,48 +1,50 @@
-/*
-@import "outernet/mixins/colors";
-@import "outernet/mixins/fonts";
-@import "outernet/mixins/grid";
-@import "outernet/mixins/media_query";
-*/
+@import "compass/css3";
+@import "base/media_query";
+@import "base/params";
 
-.ondd-status,
-.ondd-settings {
-  /*
-  @include col2;
+$ondd-cutoff: 786px;
 
-  @include phone-portrait-wide {
-    @include col1;
+.ondd-status {
+  float: left;
+  width: 40%;
+
+  @include narrower-than($ondd-cutoff) {
+    float: none;
+    width: auto;
   }
+}
 
-  .bitrate, .lock, .service {
-    .label {
-      color: $sub;
+.ondd-status-panel {
+  margin-bottom: 1rem;
+}
+
+.ondd-settings {
+  margin-left: 40%;
+  padding-left: 1rem;
+
+  @include narrower-than($ondd-cutoff) {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.ondd-file-list {
+  li {
+    // Typography
+    white-space: nowrap;
+
+    // Basic geometry
+    padding: 0.5rem 0;
+
+    // Styling
+    border-bottom: $o-separator-border;
+
+    &:first-child {
+      border-top: $o-separator-border;
+    }
+
+    .o-progress-mini {
+      margin-right: 1rem;
     }
   }
-  */
-
-  .progress {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .progress .label {
-    text-transform: uppercase;
-  }
-
-  /*
-  .no-lock {
-    color: $fire;
-  }
-
-  .has-lock {
-    color: $forest;
-  }
-  */
 }
-
-/*
-.signal-status, .ondd-file-list {
-  @include col1;
-}
-*/

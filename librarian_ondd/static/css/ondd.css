@@ -1,49 +1,62 @@
-/*
-@import "outernet/mixins/colors";
-@import "outernet/mixins/fonts";
-@import "outernet/mixins/grid";
-@import "outernet/mixins/media_query";
-*/
-/* line 8, ../../../src/scss/ondd.scss */
-.ondd-status,
+/**
+ * _media_query.scss: media query support
+ *
+ * Copyright 2014-2015, Outernet Inc.
+ * Some rights reserved.
+ *
+ * This software is free software licensed under the terms of GPLv3. See
+ * COPYING file that comes with the source code, or
+ * http://www.gnu.org/licenses/gpl.txt.
+ */
+/**
+ * This module contains base variables that are used to re-skin (customize) the 
+ * Librarian UI toolkit.
+ *
+ * Recommended way to customize the variables is to load a separate module 
+ * containing customized values _before_ this module.
+ */
+/* line 7, ../../../src/scss/ondd.scss */
+.ondd-status {
+  float: left;
+  width: 40%;
+}
+@media only screen and (max-width: 786px) {
+  /* line 7, ../../../src/scss/ondd.scss */
+  .ondd-status {
+    float: none;
+    width: auto;
+  }
+}
+
+/* line 17, ../../../src/scss/ondd.scss */
+.ondd-status-panel {
+  margin-bottom: 1rem;
+}
+
+/* line 21, ../../../src/scss/ondd.scss */
 .ondd-settings {
-  /*
-  @include col2;
-
-  @include phone-portrait-wide {
-    @include col1;
-  }
-
-  .bitrate, .lock, .service {
-    .label {
-      color: $sub;
-    }
-  }
-  */
-  /*
-  .no-lock {
-    color: $fire;
-  }
-
-  .has-lock {
-    color: $forest;
-  }
-  */
+  margin-left: 40%;
+  padding-left: 1rem;
 }
-/* line 24, ../../../src/scss/ondd.scss */
-.ondd-status .progress,
-.ondd-settings .progress {
-  max-width: 100%;
-  width: 100%;
-}
-/* line 29, ../../../src/scss/ondd.scss */
-.ondd-status .progress .label,
-.ondd-settings .progress .label {
-  text-transform: uppercase;
+@media only screen and (max-width: 786px) {
+  /* line 21, ../../../src/scss/ondd.scss */
+  .ondd-settings {
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
 
-/*
-.signal-status, .ondd-file-list {
-  @include col1;
+/* line 32, ../../../src/scss/ondd.scss */
+.ondd-file-list li {
+  white-space: nowrap;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
 }
-*/
+/* line 42, ../../../src/scss/ondd.scss */
+.ondd-file-list li:first-child {
+  border-top: 1px solid #ddd;
+}
+/* line 46, ../../../src/scss/ondd.scss */
+.ondd-file-list li .o-progress-mini {
+  margin-right: 1rem;
+}
