@@ -1,0 +1,3 @@
+[submodule "src/scss/base"]
+	path = src/scss/base
+	url = https://github.com/Outernet-Project/librarian-ui-base.git
