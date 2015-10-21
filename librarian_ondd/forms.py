@@ -7,6 +7,8 @@ try:
 except AttributeError:
     raise RuntimeError("ONDD plugin requires UNIX sockets")
 
+from .tools import has_tuner
+
 
 class ONDDForm(form.Form):
     PRESETS = consts.PRESETS
@@ -77,6 +79,10 @@ class ONDDForm(form.Form):
     )
 
     def validate(self):
+        if not has_tuner():
+            # Translators, error message shown when a tuner is not detected
+            raise form.ValidationError('tuning_error', {})
+
         lnb = self.processed_data['lnb']
         frequency = self.processed_data['frequency']
         symbolrate = self.processed_data['symbolrate']
