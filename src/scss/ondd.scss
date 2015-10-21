@@ -3,11 +3,16 @@
 @import "base/params";
 
 $ondd-cutoff: 786px;
+$ondd-too-wide: 1000px;
 
 .ondd-status {
   // Basic geometry
   float: left;
   width: 40%;
+
+  @include wider-than($ondd-too-wide) {
+    width: 400px;
+  }
 
   @include narrower-than($ondd-cutoff) {
     float: none;
@@ -15,19 +20,25 @@ $ondd-cutoff: 786px;
   }
 }
 
-.ondd-status-panel {
-  margin-bottom: 1rem;
-}
-
 .ondd-settings {
   // Basic geometry
   margin-left: 40%;
   padding-left: 1rem;
+  max-width: 400px;
+
+  @include wider-than($ondd-too-wide) {
+    margin-left: 400px;
+  }
 
   @include narrower-than($ondd-cutoff) {
     margin-left: 0;
     padding-left: 0;
+    max-width: 100%;
   }
+}
+
+.ondd-status-panel {
+  margin-bottom: 1rem;
 }
 
 .ondd-file-list {

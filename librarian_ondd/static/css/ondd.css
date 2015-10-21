@@ -15,52 +15,66 @@
  * Recommended way to customize the variables is to load a separate module 
  * containing customized values _before_ this module.
  */
-/* line 7, ../../../src/scss/ondd.scss */
+/* line 8, ../../../src/scss/ondd.scss */
 .ondd-status {
   float: left;
   width: 40%;
 }
+@media only screen and (min-width: 1000px) {
+  /* line 8, ../../../src/scss/ondd.scss */
+  .ondd-status {
+    width: 400px;
+  }
+}
 @media only screen and (max-width: 786px) {
-  /* line 7, ../../../src/scss/ondd.scss */
+  /* line 8, ../../../src/scss/ondd.scss */
   .ondd-status {
     float: none;
     width: auto;
   }
 }
 
-/* line 18, ../../../src/scss/ondd.scss */
+/* line 23, ../../../src/scss/ondd.scss */
+.ondd-settings {
+  margin-left: 40%;
+  padding-left: 1rem;
+  max-width: 400px;
+}
+@media only screen and (min-width: 1000px) {
+  /* line 23, ../../../src/scss/ondd.scss */
+  .ondd-settings {
+    margin-left: 400px;
+  }
+}
+@media only screen and (max-width: 786px) {
+  /* line 23, ../../../src/scss/ondd.scss */
+  .ondd-settings {
+    margin-left: 0;
+    padding-left: 0;
+    max-width: 100%;
+  }
+}
+
+/* line 40, ../../../src/scss/ondd.scss */
 .ondd-status-panel {
   margin-bottom: 1rem;
 }
 
-/* line 22, ../../../src/scss/ondd.scss */
-.ondd-settings {
-  margin-left: 40%;
-  padding-left: 1rem;
-}
-@media only screen and (max-width: 786px) {
-  /* line 22, ../../../src/scss/ondd.scss */
-  .ondd-settings {
-    margin-left: 0;
-    padding-left: 0;
-  }
-}
-
-/* line 33, ../../../src/scss/ondd.scss */
+/* line 44, ../../../src/scss/ondd.scss */
 .ondd-file-list {
   margin-bottom: 1rem;
 }
-/* line 37, ../../../src/scss/ondd.scss */
+/* line 48, ../../../src/scss/ondd.scss */
 .ondd-file-list li {
   white-space: nowrap;
   padding: 0.5rem 0;
   border-bottom: 1px solid #ddd;
 }
-/* line 47, ../../../src/scss/ondd.scss */
+/* line 58, ../../../src/scss/ondd.scss */
 .ondd-file-list li:first-child {
   border-top: 1px solid #ddd;
 }
-/* line 51, ../../../src/scss/ondd.scss */
+/* line 62, ../../../src/scss/ondd.scss */
 .ondd-file-list li .o-progress-mini {
   margin-right: 1rem;
 }
