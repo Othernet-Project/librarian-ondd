@@ -1,0 +1,99 @@
+/**
+ * This module contains base variables that are used to re-skin (customize) the 
+ * Librarian UI toolkit.
+ *
+ * Recommended way to customize the variables is to load a separate module 
+ * containing customized values _before_ this module.
+ */
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 16, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel {
+  border: 1px solid #ddd;
+  background: #eee;
+  padding-bottom: 1rem;
+}
+/* line 21, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+/* line 27, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel .ondd-main-status {
+  margin-bottom: 1rem;
+}
+/* line 32, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel .ondd-quick-status {
+  font-size: 140%;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  -moz-border-radius-bottomright: 0.3rem;
+  -webkit-border-bottom-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  color: #fff;
+  background: #cc3737;
+}
+/* line 47, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel .ondd-quick-status.ondd-all-ok {
+  background: #255a89;
+}
+/* line 53, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel .ondd-status-icons {
+  line-height: 100%;
+  font-size: 140%;
+  margin-bottom: 0;
+}
+/* line 59, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel .ondd-status-icons .ondd-status-ng {
+  color: #cc3737;
+  -moz-animation: blink linear 0.5s infinite;
+  -webkit-animation: blink linear 0.5s infinite;
+  animation: blink linear 0.5s infinite;
+}
+/* line 68, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel .ondd-status-indicators {
+  white-space: nowrap;
+  display: block;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+/* line 74, ../../../src/scss/ondd_status.scss */
+.ondd-status-panel .ondd-status-indicators .o-progress {
+  margin: 0 0.5rem;
+}
