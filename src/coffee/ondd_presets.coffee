@@ -9,6 +9,7 @@
   ]
 
   onddForm = $ '#ondd-form'
+  collapsible = onddForm.parents '.o-collapsible-section'
 
   # Ignore if required elements are not present
   if not onddForm.length
@@ -48,6 +49,8 @@
       help.text coverage
       for f in FIELDS
         fields[f].val data[f]
+
+    collapsible.trigger 'resize'
 
     return
 
