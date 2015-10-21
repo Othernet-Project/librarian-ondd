@@ -37,6 +37,9 @@ class ONDDDashboardPlugin(DashboardPlugin):
     heading = _('Tuner settings')
     name = 'ondd'
 
+    def get_template(self):
+        return 'ondd/dashboard'
+
     def get_context(self):
         initial_data = read_ondd_setup()
         return dict(status=ipc.get_status(),
