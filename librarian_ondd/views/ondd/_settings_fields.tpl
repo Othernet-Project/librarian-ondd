@@ -1,9 +1,7 @@
 <%namespace name="forms" file="/ui/forms.tpl"/>
 <%namespace name="presets" file="_presets.tpl"/>
 
-% if message:
-<p class="message">${ message }</p>
-% endif
+${forms.form_message(message)}
 ${forms.form_errors(form.error)}
 
 <div class="lnb-settings">
