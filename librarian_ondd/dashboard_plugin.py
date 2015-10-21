@@ -36,6 +36,7 @@ class ONDDDashboardPlugin(DashboardPlugin):
     # Translators, used as dashboard section title
     heading = _('Tuner settings')
     name = 'ondd'
+    priority = 10
 
     def get_template(self):
         return 'ondd/dashboard'
