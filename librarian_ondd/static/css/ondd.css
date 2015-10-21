@@ -37,7 +37,7 @@
 /* line 23, ../../../src/scss/ondd.scss */
 .ondd-settings {
   margin-left: 40%;
-  padding-left: 1rem;
+  padding-left: 2rem;
   max-width: 400px;
 }
 @media only screen and (min-width: 1000px) {

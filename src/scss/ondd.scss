@@ -23,7 +23,7 @@ $ondd-too-wide: 1000px;
 .ondd-settings {
   // Basic geometry
   margin-left: 40%;
-  padding-left: 1rem;
+  padding-left: 2rem;
   max-width: 400px;
 
   @include wider-than($ondd-too-wide) {
