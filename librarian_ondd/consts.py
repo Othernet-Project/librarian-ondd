@@ -50,6 +50,8 @@ PRESETS = [
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
         'azimuth': 0,
+        # Translators, used as coverage area of a transponder
+        'coverage': _('North America'),
     }),
     ('Hotbird 13 (13.0E)', 2, {
         'frequency': '11471',
@@ -58,6 +60,8 @@ PRESETS = [
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
         'azimuth': 0,
+        # Translators, used as coverage area of a transponder
+        'coverage': _('Europe, North Africa'),
     }),
     ('Intelsat 20 (68.5E)', 3, {
         'frequency': '12522',
@@ -66,6 +70,8 @@ PRESETS = [
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
         'azimuth': 0,
+        # Translators, used as coverage area of a transponder
+        'coverage': _('North and West Europe, Subsaharan Africa'),
     }),
     ('AsiaSat 5 C-band (100.5E)', 4, {
         'frequency': '3960',
@@ -74,6 +80,8 @@ PRESETS = [
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
         'azimuth': 0,
+        # Translators, used as coverage area of a transponder
+        'coverage': _('Middle East, Asia, Australia'),
     }),
     ('Eutelsat (113.0W)', 5, {
         'frequency': '12089',
@@ -82,6 +90,8 @@ PRESETS = [
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
         'azimuth': 0,
+        # Translators, used as coverage area of a transponder
+        'coverage': _('North, Middle, and South America'),
     }),
     ('ABS-2 (74.9E)', 6, {
         'frequency': '11734',
@@ -90,13 +100,7 @@ PRESETS = [
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
         'azimuth': 0,
-    }),
-    ('Intelsat 10 (47.5E)', 7, {
-        'frequency': '12602',
-        'symbolrate': '10110',
-        'polarization': 'v',
-        'delivery': 'DVB-S2',
-        'modulation': 'QPSK',
-        'azimuth': 0,
+        # Translators, used as coverage area of a transponder
+        'coverage': _('India'),
     }),
 ]
