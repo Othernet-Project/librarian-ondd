@@ -20,10 +20,14 @@
 <%block name="step">
     <div id="ondd-form" class="step-ondd-form">
         <div id="settings-form">
-            % if form.error:
-            ${form.error}
-            % endif
             ${settings_fields.body()}
+            <p>
+                <button id="tuner-test" type="submit" name="mode" value="test">
+                    ## Translators, used as button label for tuner test during
+                    ## setup wizard
+                    ${_('Test settings')}
+                </button>
+            </p>
         </div>
 
         <div id="signal-status" class="signal-status ondd-status" data-url="${i18n_url('ondd:status')}">
@@ -33,7 +37,6 @@
 </%block>
 
 <%block name="extra_body">
-    ${presets.body()}
     <script type="text/template" id="jsFieldError">
         <span class="field-error js-error"></span>
     </script>
