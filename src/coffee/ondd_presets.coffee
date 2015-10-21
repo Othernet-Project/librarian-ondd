@@ -8,49 +8,58 @@
     'modulation'
   ]
 
-  lnbSettings = $ '.lnb-settings'
-  formFields = $ '.settings-fields'
-  presets = templates.satPresets
+  onddForm = $ '#ondd-form'
 
   # Ignore if required elements are not present
-  if not formFields.length
+  if not onddForm.length
     return
-
-  # Add presets container
-  presetsContainer = $ '<div>'
-  lnbSettings.after presetsContainer
 
   # Cache selectors for the form field
   fields = {}
   for f in FIELDS
     fields[f] = $ "##{f}"
 
-  # Load the presets form and hide the main form
-  presetsContainer.html presets
-  formFields.hide()
+  # Grab refrences to relevant elements
+  customSettingsFields = onddForm.find '.settings-fields'
+  transponders = onddForm.find '#transponders'
+  help = transponders.next '.o-field-help-message'
 
-  # Grab the elements in presets form
-  transponders = presetsContainer.find '#transponders'
+  # Hide custom settings
+  customSettingsFields.hide()
 
   # Cache selectors for all options
   options = {}
-  transponders.find('option').each () ->
+  (transponders.find 'option').each () ->
     opt = $ this
     options[opt.val()] = opt
+    return
 
-  transponders.on 'change', () ->
+  onTransponderSwitch = () ->
     val = transponders.val()
     opt = options[val]
 
-    if val is '0'
-      return
+    help.text ''
+
+    if not val
+      customSettingsFields.hide()
     else if val is '-1'
-      formFields.show()
+      customSettingsFields.show()
     else
-      formFields.hide()
+      customSettingsFields.hide()
       data = opt.data()
+      coverage = data.coverage
+      help.text coverage
       for f in FIELDS
         fields[f].val data[f]
 
+    return
+
+  # Handle transponder select list change event
+  transponders.on 'change', onTransponderSwitch
+
+  # Reset inital state
+  onTransponderSwitch()
+
+  return
 
 ) this, this.jQuery, this.templates
