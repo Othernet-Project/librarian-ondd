@@ -46,17 +46,21 @@
   }
 }
 
-/* line 32, ../../../src/scss/ondd.scss */
+/* line 31, ../../../src/scss/ondd.scss */
+.ondd-file-list {
+  margin-bottom: 1rem;
+}
+/* line 35, ../../../src/scss/ondd.scss */
 .ondd-file-list li {
   white-space: nowrap;
   padding: 0.5rem 0;
   border-bottom: 1px solid #ddd;
 }
-/* line 42, ../../../src/scss/ondd.scss */
+/* line 45, ../../../src/scss/ondd.scss */
 .ondd-file-list li:first-child {
   border-top: 1px solid #ddd;
 }
-/* line 46, ../../../src/scss/ondd.scss */
+/* line 49, ../../../src/scss/ondd.scss */
 .ondd-file-list li .o-progress-mini {
   margin-right: 1rem;
 }

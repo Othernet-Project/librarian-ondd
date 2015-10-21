@@ -29,6 +29,9 @@ $ondd-cutoff: 786px;
 }
 
 .ondd-file-list {
+  // Basic geometry
+  margin-bottom: 1rem;
+
   li {
     // Typography
     white-space: nowrap;
