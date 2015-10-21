@@ -19,24 +19,21 @@
   for f in FIELDS
     fields[f] = $ "##{f}"
 
-  # Grab refrences to relevant elements
-  customSettingsFields = onddForm.find '.settings-fields'
-  transponders = onddForm.find '#transponders'
-  help = transponders.next '.o-field-help-message'
-
-  # Hide custom settings
-  customSettingsFields.hide()
-
   # Cache selectors for all options
   options = {}
-  (transponders.find 'option').each () ->
-    opt = $ this
-    options[opt.val()] = opt
-    return
+  index = () ->
+    transponders = onddForm.find '#transponders'
+    (transponders.find 'option').each () ->
+      opt = $ this
+      options[opt.val()] = opt
+      return
 
   onTransponderSwitch = () ->
+    customSettingsFields = onddForm.find '.settings-fields'
+    transponders = onddForm.find '#transponders'
     val = transponders.val()
     opt = options[val]
+    help = transponders.next '.o-field-help-message'
 
     help.text ''
 
@@ -55,9 +52,13 @@
     return
 
   # Handle transponder select list change event
-  transponders.on 'change', onTransponderSwitch
+  onddForm.on 'change', '#transponders', onTransponderSwitch
+  ($ window).on 'transponder-updated', () ->
+    index()
+    onTransponderSwitch()
 
   # Reset inital state
+  index()
   onTransponderSwitch()
 
   return
