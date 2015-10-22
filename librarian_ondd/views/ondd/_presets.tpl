@@ -3,7 +3,6 @@
 <% 
 selected_preset = context.get('selected_preset', 0)
 value = request.params.get('preset', str(selected_preset))
-print(value)
 %>
 
 <p class="o-field">
@@ -11,7 +10,7 @@ print(value)
     ${forms.label(_('Satellite'), id='transponders')}
     <select name="preset" id="transponders" class="transponders">
         ## Translators, placeholder for satellite selection select list
-        <option>${_('Select a satellite')}</option>
+        <option value="">${_('Select a satellite')}</option>
         % for pname, index, preset in form.PRESETS:
             <option value="${index}" ${ 'selected' if value == str(index) else ''}
                 data-frequency="${preset['frequency']}"
