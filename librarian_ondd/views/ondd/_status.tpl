@@ -55,6 +55,6 @@
         ## indicator
         ${ui.progress(_('Quality'), snr_pct, value=status['snr'], threshold=25)}
         ## Translators, labe is located next to the bitrate indicator
-        ${ui.progress(_('Bitrate'), bitrate_pct, h.hsize(bitrate, 'b', 1000, rounding=0, sep=''), threshold=10)}
+        ${ui.progress(_('Bitrate'), bitrate_pct, h.hsize(bitrate, '', 1000, rounding=0, sep=''), threshold=10)}
     </div>
 </div>
