@@ -1,6 +1,9 @@
 <%namespace name="forms" file="/ui/forms.tpl"/>
 
-<% value = request.params.get('preset') %>
+<% 
+selected_preset = context.get('selected_preset', 0)
+value = request.params.get('preset', str(selected_preset)) 
+%>
 
 <p class="o-field">
     ## Translators, label for select list that allows user to pick a satellite to tune into
