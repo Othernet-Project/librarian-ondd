@@ -2,7 +2,7 @@
 
 <%namespace name="forms" file="/ui/forms.tpl"/>
 <%namespace name="settings_fields" file="/ondd/_settings_fields.tpl"/>
-<%namespace name="signal" file="/ondd/_signal.tpl"/>
+<%namespace name="status" file="/ondd/_status.tpl"/>
 <%namespace name="presets" file="/ondd/_presets.tpl"/>
 
 <%block name="step_title">
@@ -31,7 +31,7 @@
         </div>
 
         <div id="signal-status" class="signal-status ondd-status" data-url="${i18n_url('ondd:status')}">
-            ${signal.body()}
+            ${status.body()}
         </div>
     </div>
 </%block>
