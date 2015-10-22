@@ -2,7 +2,8 @@
 
 <% 
 selected_preset = context.get('selected_preset', 0)
-value = request.params.get('preset', str(selected_preset)) 
+value = request.params.get('preset', str(selected_preset))
+print(value)
 %>
 
 <p class="o-field">
@@ -21,7 +22,7 @@ value = request.params.get('preset', str(selected_preset))
                 data-coverage="${preset['coverage']}">${pname}</option>
         % endfor
         ## Translators, label for option that allows user to set custom transponder parameters
-        <option value="-1">${_('Custom...')}</option>
+        <option value="-1"${' selected' if value == '-1' else ''}>${_('Custom...')}</option>
     </select>
     ${forms.field_help('')}
 </p>
