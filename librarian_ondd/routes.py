@@ -14,7 +14,7 @@ except AttributeError:
     raise RuntimeError('ONDD plugin requires UNIX sockets')
 
 
-@view('ondd/_signal')
+@view('ondd/_status')
 def get_signal_status():
     return dict(status=ipc.get_status())
 
