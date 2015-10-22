@@ -196,13 +196,18 @@ def parse_transfer(transfer):
     path = transfer.find('path').text or ''
     block_count = int(transfer.find('block_count').text)
     block_received = int(transfer.find('block_received').text)
-    percentage = block_received * 100 / (block_count or 1)
+    complete = transfer.find('complete').text == 'yes'
+    if complete:
+        percentage = 100
+    else:
+        percentage = block_received * 100 / (block_count or 1)
     return dict(path=path,
                 filename=os.path.basename(path),
                 hash=transfer.find('hash').text,
                 block_count=block_count,
                 block_received=block_received,
-                percentage=percentage)
+                percentage=percentage,
+                complete=complete)
 
 
 def get_transfers():
