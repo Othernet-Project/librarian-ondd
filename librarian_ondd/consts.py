@@ -49,7 +49,6 @@ PRESETS = [
         'polarization': 'v',
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
-        'azimuth': 0,
         # Translators, used as coverage area of a transponder
         'coverage': _('North America'),
     }),
@@ -59,7 +58,6 @@ PRESETS = [
         'polarization': 'v',
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
-        'azimuth': 0,
         # Translators, used as coverage area of a transponder
         'coverage': _('Europe, North Africa'),
     }),
@@ -69,7 +67,6 @@ PRESETS = [
         'polarization': 'v',
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
-        'azimuth': 0,
         # Translators, used as coverage area of a transponder
         'coverage': _('North and West Europe, Subsaharan Africa'),
     }),
@@ -79,7 +76,6 @@ PRESETS = [
         'polarization': 'h',
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
-        'azimuth': 0,
         # Translators, used as coverage area of a transponder
         'coverage': _('Middle East, Asia, Australia'),
     }),
@@ -89,7 +85,6 @@ PRESETS = [
         'polarization': 'h',
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
-        'azimuth': 0,
         # Translators, used as coverage area of a transponder
         'coverage': _('North, Middle, and South America'),
     }),
@@ -99,7 +94,6 @@ PRESETS = [
         'polarization': 'h',
         'delivery': 'DVB-S',
         'modulation': 'QPSK',
-        'azimuth': 0,
         # Translators, used as coverage area of a transponder
         'coverage': _('India'),
     }),
