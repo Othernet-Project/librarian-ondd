@@ -14,6 +14,7 @@
 }
 
 .ondd-status-panel {
+  position: relative;
   border: $o-separator-border;
   background: $o-material;
   padding-bottom: 1rem;
@@ -55,6 +56,11 @@
     line-height: 100%;
     font-size: 140%;
     margin-bottom: 0;
+
+    // Basic geometry
+    position: absolute;
+    right: 0.5rem;
+    top: 0.2rem;
 
     .ondd-status-ng {
       // Styling
