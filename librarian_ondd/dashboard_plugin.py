@@ -65,4 +65,4 @@ class ONDDDashboardPlugin(DashboardPlugin):
         return dict(status=ipc.get_status(),
                     form=ONDDForm(initial_data),
                     files=ipc.get_transfers(),
-                    preset=preset)
+                    selected_preset=preset)
