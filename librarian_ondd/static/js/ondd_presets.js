@@ -28,8 +28,11 @@
     transponders = onddForm.find('#transponders');
     val = transponders.val();
     opt = options[val];
+    console.log(val);
     help = transponders.next('.o-field-help-message');
     help.text('');
+    help.hide();
+    console.log('hiding');
     if (!val) {
       customSettingsFields.hide();
     } else if (val === '-1') {
@@ -38,7 +41,9 @@
       customSettingsFields.hide();
       data = opt.data();
       coverage = data.coverage;
+      console.log('showing');
       help.text(coverage);
+      help.show();
       for (j = 0, len1 = FIELDS.length; j < len1; j++) {
         f = FIELDS[j];
         fields[f].val(data[f]);

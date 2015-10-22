@@ -34,9 +34,13 @@
     transponders = onddForm.find '#transponders'
     val = transponders.val()
     opt = options[val]
-    help = transponders.next '.o-field-help-message'
 
+    console.log val
+
+    help = transponders.next '.o-field-help-message'
     help.text ''
+    help.hide()
+    console.log 'hiding'
 
     if not val
       customSettingsFields.hide()
@@ -46,7 +50,11 @@
       customSettingsFields.hide()
       data = opt.data()
       coverage = data.coverage
+
+      console.log 'showing'
       help.text coverage
+      help.show()
+
       for f in FIELDS
         fields[f].val data[f]
 
