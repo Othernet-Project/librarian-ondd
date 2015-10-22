@@ -2,10 +2,11 @@
 
 <%
     SNR_MAX = 1.6
-    BRATE_MAX = 100
+    BRATE_MAX = 100000.0
     bitrate = th.get_bitrate(status)
-    snr_pct = h.perc_range(status['snr'], 0, SNR_MAX)
-    bitrate_pct = h.perc_range(bitrate, 0, BRATE_MAX)
+    snr = status['snr']
+    snr_pct = round(snr / SNR_MAX * 100)
+    bitrate_pct = round(bitrate / BRATE_MAX * 100)
 
     has_tuner = th.has_tuner()
     has_lock = status['has_lock'] 
