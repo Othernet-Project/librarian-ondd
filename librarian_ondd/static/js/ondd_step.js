@@ -5,7 +5,7 @@
   if (!onddForm.length) {
     return;
   }
-  msg = $(onddForm.find('.o-form-message'));
+  msg = onddForm.find('.o-form-message');
   if (msg.length) {
     setTimeout(function() {
       return msg.slideUp(500);
