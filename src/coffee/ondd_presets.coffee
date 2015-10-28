@@ -35,12 +35,9 @@
     val = transponders.val()
     opt = options[val]
 
-    console.log val
-
     help = transponders.next '.o-field-help-message'
     help.text ''
     help.hide()
-    console.log 'hiding'
 
     if not val
       customSettingsFields.hide()
@@ -51,7 +48,6 @@
       data = opt.data()
       coverage = data.coverage
 
-      console.log 'showing'
       help.text coverage
       help.show()
 
