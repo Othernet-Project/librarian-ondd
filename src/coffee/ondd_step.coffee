@@ -6,7 +6,7 @@
   if not onddForm.length
     return
 
-  msg = $(onddForm.find '.o-form-message')
+  msg = onddForm.find '.o-form-message'
   if msg.length
     setTimeout () ->
       msg.slideUp 500
