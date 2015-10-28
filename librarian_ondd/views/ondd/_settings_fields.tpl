@@ -2,7 +2,7 @@
 <%namespace name="presets" file="_presets.tpl"/>
 
 ${forms.form_message(message)}
-${forms.form_errors(form.error)}
+${forms.form_errors([form.error])}
 
 <div class="lnb-settings">
     ${forms.field(form.lnb)}
