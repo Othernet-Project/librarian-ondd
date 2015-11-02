@@ -17,8 +17,9 @@
 
   # Cache selectors for the form field
   fields = {}
-  for f in FIELDS
-    fields[f] = $ "##{f}"
+  cacheSelectors = () ->
+    for f in FIELDS
+      fields[f] = $ "##{f}"
 
   # Cache selectors for all options
   options = {}
@@ -35,12 +36,9 @@
     val = transponders.val()
     opt = options[val]
 
-    console.log val
-
     help = transponders.next '.o-field-help-message'
     help.text ''
     help.hide()
-    console.log 'hiding'
 
     if not val
       customSettingsFields.hide()
@@ -51,9 +49,11 @@
       data = opt.data()
       coverage = data.coverage
 
-      console.log 'showing'
       help.text coverage
       help.show()
+
+      $('.o-field-error').removeClass("o-field-error")
+      $(".o-field-error-message").remove()
 
       for f in FIELDS
         fields[f].val data[f]
@@ -66,10 +66,12 @@
   onddForm.on 'change', '#transponders', onTransponderSwitch
   ($ window).on 'transponder-updated', () ->
     index()
+    cacheSelectors()
     onTransponderSwitch()
 
   # Reset inital state
   index()
+  cacheSelectors()
   onTransponderSwitch()
 
   return

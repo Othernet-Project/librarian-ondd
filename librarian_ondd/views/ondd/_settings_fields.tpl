@@ -2,7 +2,8 @@
 <%namespace name="presets" file="_presets.tpl"/>
 
 ${forms.form_message(message)}
-${forms.form_errors(form.error)}
+${forms.form_errors([form.error]) if form.error else ''}
+
 
 <div class="lnb-settings">
     ${forms.field(form.lnb)}
