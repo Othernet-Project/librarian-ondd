@@ -17,6 +17,10 @@ def read_ondd_setup():
 
 
 def has_invalid_config():
+    ondd_alive = ipc.ping()
+    if not ondd_alive:
+        # If ondd is not running, skip the step
+        return False
     settings = read_ondd_setup()
     if settings is None:
         # Settings is None if ONDD configuration has never been performed

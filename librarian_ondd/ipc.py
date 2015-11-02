@@ -54,6 +54,15 @@ def open_socket():
         sock.close()
 
 
+def ping():
+    """ Check if ondd endpoint is active."""
+    try:
+        with open_socket():
+            return True
+    except (socket.error, socket.timeout):
+        return False
+
+
 def read(sock, buffsize=2048):
     """ Read the data from a socket until exhausted or NULL byte
 
