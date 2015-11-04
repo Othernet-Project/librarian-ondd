@@ -39,11 +39,12 @@ def show_file_list():
 
 
 def routes(config):
+    skip_plugins = config['app.skip_plugins']
     return (
         ('ondd:status', get_signal_status,
-         'GET', '/ondd/status/', dict(unlocked=True, skip=['setup'])),
+         'GET', '/ondd/status/', dict(unlocked=True, skip=skip_plugins)),
+        ('ondd:files', show_file_list,
+         'GET', '/ondd/files/', dict(unlocked=True, skip=skip_plugins)),
         ('ondd:settings', set_settings,
          'POST', '/ondd/settings/', dict(unlocked=True)),
-        ('ondd:files', show_file_list,
-         'GET', '/ondd/files/', dict(unlocked=True)),
     )
