@@ -1,4 +1,4 @@
-<%inherit file="../base.tpl"/>
+<%inherit file="/narrow_base.tpl"/>
 <%namespace name="settings_form" file="_settings_form.tpl"/>
 
 <%block name="title">
@@ -6,14 +6,16 @@
 ${_('Tuner settings')}
 </%block>
 
-<%block name="heading">
-## Translators, used as page heading
-${_('Tuner settings')}
-</%block>
+<h2>
+    <span class="icon icon-satellite"></span>
+    ## Translators, used as page heading
+    <span>${_('Tuner settings')}</span>
+</h2>
 
-${settings_form.body()}
+<form action="${i18n_url('ondd:settings')}" method="POST" id="ondd-form">
+    ${settings_form.body()}
+</form>
 
 <%block name="extra_scripts">
-<script type="text/javascript" src="${assets['vendor/ondd']}"></script>
+    <script src="${assets['js/ondd_presets']}"></script>
 </%block>
-

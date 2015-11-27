@@ -20,8 +20,11 @@ value = request.params.get('preset', str(selected_preset))
                 data-modulation="${preset['modulation']}"
                 data-coverage="${preset['coverage']}">${pname}</option>
         % endfor
-        ## Translators, label for option that allows user to set custom transponder parameters
+        ## Translators, label for option that allows user to set custom
+        ## transponder parameters
         <option value="-1"${' selected' if value == '-1' else ''}>${_('Custom...')}</option>
     </select>
-    ${forms.field_help('')}
+    ## Translators, instruction for the user on how to use the presets select
+    ## list
+    ${forms.field_help(_("Select a preset or use 'Custom' and enter data manually"))}
 </p>
