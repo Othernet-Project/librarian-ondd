@@ -98,3 +98,10 @@ PRESETS = [
         'coverage': _('India'),
     }),
 ]
+
+def get_form_data_for_preset(index, defaults={}):
+    for p in PRESETS:
+        label, pindex, data = p
+        if index == pindex:
+            return data
+    return defaults
