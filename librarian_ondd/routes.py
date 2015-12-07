@@ -10,7 +10,7 @@ from .forms import ONDDForm
 from .consts import get_form_data_for_preset
 
 try:
-    from . import ipc
+    from ondd_ipc import ipc
 except AttributeError:
     raise RuntimeError('ONDD plugin requires UNIX sockets')
 

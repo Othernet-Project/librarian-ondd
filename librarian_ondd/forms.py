@@ -3,7 +3,7 @@ from bottle_utils.i18n import lazy_gettext as _
 
 from . import consts
 try:
-    from . import ipc
+    from ondd_ipc import ipc
 except AttributeError:
     raise RuntimeError("ONDD plugin requires UNIX sockets")
 

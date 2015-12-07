@@ -20,7 +20,7 @@ from .forms import ONDDForm
 from .setup import read_ondd_setup
 
 try:
-    from . import ipc
+    from ondd_ipc import ipc
 except AttributeError:
     raise RuntimeError('ONDD plugin requires UNIX sockets')
 
