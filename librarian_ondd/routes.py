@@ -39,7 +39,7 @@ def set_settings():
     except (TypeError, ValueError):
         preset = 0
     form_data = get_form_data_for_preset(preset, request.forms)
-    form_data.setdefault('lnb', request.params.get('lnb'))
+    form_data.update({'lnb': request.params.get('lnb')})
     form = ONDDForm(form_data)
     if not form.is_valid():
         return dict(form=form)
