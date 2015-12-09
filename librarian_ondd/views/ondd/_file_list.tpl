@@ -12,9 +12,7 @@
             % if f['filename']:
                 ${f['filename']} 
                 % if f['complete']:
-                    ## Translators, used in file list when download manager
-                    ## sees a file that has already been downloaded once.
-                    (${_('skipping')})
+                    (100%)
                 % else:
                     (${f['percentage']}%)
                 % endif
