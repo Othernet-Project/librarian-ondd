@@ -5,11 +5,6 @@ from bottle_utils.i18n import lazy_gettext as _
 
 from .forms import ONDDForm
 
-try:
-    from ondd_ipc import ipc
-except AttributeError:
-    raise RuntimeError('ONDD plugin requires UNIX sockets')
-
 
 def read_ondd_setup():
     initial_data = request.app.supervisor.exts.setup.get('ondd')
@@ -17,7 +12,8 @@ def read_ondd_setup():
 
 
 def has_invalid_config():
-    ondd_alive = ipc.ping()
+    ondd_client = request.app.supervisor.exts.ondd
+    ondd_alive = ondd_client.ping()
     if not ondd_alive:
         # If ondd is not running, skip the step
         return False
@@ -35,10 +31,12 @@ def has_invalid_config():
 
 
 def setup_ondd_form():
-    return dict(status=ipc.get_status(), form=ONDDForm())
+    ondd_client = request.app.supervisor.exts.ondd
+    return dict(status=ondd_client.get_status(), form=ONDDForm())
 
 
 def setup_ondd():
+    ondd_client = request.app.supervisor.exts.ondd
     is_test_mode = request.forms.get('mode', 'submit') == 'test'
 
     form = ONDDForm(request.forms)
@@ -50,7 +48,7 @@ def setup_ondd():
         request.app.supervisor.exts.setup.append({'ondd': form.processed_data})
 
         if is_test_mode:
-            return dict(successful=False, form=form, status=ipc.get_status(),
+            return dict(successful=False, form=form, status=ondd_client.get_status(),
                         # Translators, shown when tuner settings are updated
                         # during setup wizard step.
                         message=_('Tuner settings have been updated'))
@@ -60,7 +58,7 @@ def setup_ondd():
 
     if is_test_mode:
         # We only do something about this in test mode
-        return dict(successful=False, form=form, status=ipc.get_status())
+        return dict(successful=False, form=form, status=ondd_client.get_status())
 
     request.app.supervisor.exts.setup.append({'ondd': {}})
     return dict(successful=True)

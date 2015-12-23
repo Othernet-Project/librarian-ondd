@@ -9,15 +9,11 @@ from librarian_core.contrib.templates.renderer import template, view
 from .forms import ONDDForm
 from .consts import get_form_data_for_preset
 
-try:
-    from ondd_ipc import ipc
-except AttributeError:
-    raise RuntimeError('ONDD plugin requires UNIX sockets')
-
 
 @view('ondd/_status')
 def get_signal_status():
-    return dict(status=ipc.get_status())
+    ondd_client = request.app.supervisor.exts.ondd
+    return dict(status=ondd_client.get_status())
 
 
 @roca_view('ondd/settings', 'ondd/_settings_form', template_func=template)
@@ -54,7 +50,8 @@ def set_settings():
 
 @view('ondd/_file_list')
 def show_file_list():
-    return dict(files=ipc.get_transfers())
+    ondd_client = request.app.supervisor.exts.ondd
+    return dict(files=ondd_client.get_transfers())
 
 
 def routes(config):

@@ -1,9 +1,6 @@
 from bottle_utils.i18n import lazy_gettext as _
 
-try:
-    from ondd_ipc import ipc
-except AttributeError:
-    raise RuntimeError('ONDD plugin requires UNIX sockets')
+import ondd_ipc.consts as ondd_consts
 
 
 DELIVERY = (
@@ -35,11 +32,11 @@ VOLTS = {
 
 LNB_TYPES = (
     # Translators, this is a type of LNB
-    (ipc.UNIVERSAL, _('Universal')),
+    (ondd_consts.UNIVERSAL, _('Universal')),
     # Translators, this is a type of LNB
-    (ipc.KU_BAND, _('North America Ku band')),
+    (ondd_consts.KU_BAND, _('North America Ku band')),
     # Translators, this is a type of LNB
-    (ipc.C_BAND, _('C band')),
+    (ondd_consts.C_BAND, _('C band')),
 )
 
 PRESETS = [

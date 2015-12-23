@@ -1,11 +1,9 @@
 from bottle_utils import form
 from bottle_utils.i18n import lazy_gettext as _
 
+from ondd_ipc.utils import needs_tone, freq_conv
+
 from . import consts
-try:
-    from ondd_ipc import ipc
-except AttributeError:
-    raise RuntimeError("ONDD plugin requires UNIX sockets")
 
 from .tools import has_tuner
 
@@ -90,12 +88,13 @@ class ONDDForm(form.Form):
         modul = self.processed_data['modulation']
         polarization = self.processed_data['polarization']
 
-        needs_tone = ipc.needs_tone(frequency, lnb)
-        frequency = ipc.freq_conv(frequency, lnb)
-        response = ipc.set_settings(frequency=frequency,
+        tone = needs_tone(frequency, lnb)
+        freq = freq_conv(frequency, lnb)
+        ondd_client = request.app.supervisor.exts.ondd
+        response = ondd_client.set_settings(frequency=freq,
                                     symbolrate=symbolrate,
                                     delivery=delivery,
-                                    tone=needs_tone,
+                                    tone=tone,
                                     modulation=dict(consts.MODULATION)[modul],
                                     voltage=consts.VOLTS[polarization])
         if not response.startswith('2'):

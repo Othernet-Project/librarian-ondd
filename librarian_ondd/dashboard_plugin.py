@@ -10,6 +10,7 @@ This software is free software licensed under the terms of GPLv3. See COPYING
 file that comes with the source code, or http://www.gnu.org/licenses/gpl.txt.
 """
 
+from bottle import request
 from bottle_utils.i18n import lazy_gettext as _
 
 from librarian_core.contrib.templates.decorators import template_helper
@@ -18,11 +19,6 @@ from librarian_dashboard.dashboard import DashboardPlugin
 from .consts import PRESETS
 from .forms import ONDDForm
 from .setup import read_ondd_setup
-
-try:
-    from ondd_ipc import ipc
-except AttributeError:
-    raise RuntimeError('ONDD plugin requires UNIX sockets')
 
 
 COMPARE_KEYS = ('frequency', 'symbolrate', 'polarization', 'delivery',
@@ -62,7 +58,8 @@ class ONDDDashboardPlugin(DashboardPlugin):
     def get_context(self):
         initial_data = read_ondd_setup()
         preset = match_preset(initial_data)
-        return dict(status=ipc.get_status(),
+        ondd_client = request.app.supervisor.exts.ondd
+        return dict(status=ondd_client.get_status(),
                     form=ONDDForm(initial_data),
-                    files=ipc.get_transfers(),
+                    files=ondd_client.get_transfers(),
                     selected_preset=preset)
