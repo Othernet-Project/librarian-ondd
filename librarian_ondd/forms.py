@@ -1,3 +1,4 @@
+from bottle import request
 from bottle_utils import form
 from bottle_utils.i18n import lazy_gettext as _
 
@@ -85,18 +86,16 @@ class ONDDForm(form.Form):
         frequency = self.processed_data['frequency']
         symbolrate = self.processed_data['symbolrate']
         delivery = self.processed_data['delivery']
-        modul = self.processed_data['modulation']
+        modulation = self.processed_data['modulation']
         polarization = self.processed_data['polarization']
-
-        tone = needs_tone(frequency, lnb)
-        freq = freq_conv(frequency, lnb)
+        settings = dict(frequency=freq_conv(frequency, lnb),
+                        symbolrate=symbolrate,
+                        delivery=delivery,
+                        tone=needs_tone(frequency, lnb),
+                        modulation=dict(consts.MODULATION)[modulation],
+                        voltage=consts.VOLTS[polarization])
         ondd_client = request.app.supervisor.exts.ondd
-        response = ondd_client.set_settings(frequency=freq,
-                                    symbolrate=symbolrate,
-                                    delivery=delivery,
-                                    tone=tone,
-                                    modulation=dict(consts.MODULATION)[modul],
-                                    voltage=consts.VOLTS[polarization])
+        response = ondd_client.set_settings(**settings)
         if not response.startswith('2'):
             # Translators, error message shown when setting transponder
             # configuration is not successful
