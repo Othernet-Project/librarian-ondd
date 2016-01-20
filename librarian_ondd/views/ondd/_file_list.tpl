@@ -4,10 +4,16 @@
 import math
 
 
-def truncate(text, max_size=50, separator='...'):
-    text_len = len(text)
-    if text_len <= max_size:
-        return text
+BUNDLE_EXT = ".bundle"
+
+
+def truncate_name(name, max_size=50, separator='...'):
+    # Strip out bundle extension
+    if name.endswith(BUNDLE_EXT):
+        name = name[:-len(BUNDLE_EXT)]
+    name_len = len(name)
+    if name_len <= max_size:
+        return name
 
     sep_len = len(separator)
     usable_chars_len = max_size - sep_len
@@ -15,7 +21,7 @@ def truncate(text, max_size=50, separator='...'):
     second_len = int(math.floor(usable_chars_len /2))
     if usable_chars_len % 2 != 0:
         second_len += 1
-    return text[0:first_len] + separator + text[(text_len - second_len):]
+    return name[0:first_len] + separator + name[(name_len - second_len):]
 %>
 
 % if not files:
@@ -28,7 +34,7 @@ def truncate(text, max_size=50, separator='...'):
             <li>
             ${widgets.progress_mini(f['percentage'], icon='download')}
             % if f['filename']:
-                ${truncate(f['filename'])} 
+                ${truncate_name(f['filename'])} 
                 % if f['complete']:
                     (100%)
                 % else:
