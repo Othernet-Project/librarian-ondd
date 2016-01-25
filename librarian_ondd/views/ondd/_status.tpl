@@ -1,7 +1,7 @@
 <%namespace name="ui" file="/ui/widgets.tpl"/>
 
 <%
-    BRATE_MAX = 100000.0
+    BRATE_MAX = 90000.0
     bitrate = th.get_bitrate(status)
     snr = status['snr']
     snr_max_delta = SNR_MAX - SNR_MIN
