@@ -13,7 +13,10 @@ from .consts import get_form_data_for_preset
 @view('ondd/_status')
 def get_signal_status():
     ondd_client = request.app.supervisor.exts.ondd
-    return dict(status=ondd_client.get_status())
+    snr_min = request.app.config.get('ondd.snr_min', 0.2)
+    snr_max = request.app.config.get('ondd.snr_max', 0.9)
+    return dict(status=ondd_client.get_status(), SNR_MIN=snr_min,
+                SNR_MAX=snr_max)
 
 
 @roca_view('ondd/settings', 'ondd/_settings_form', template_func=template)
