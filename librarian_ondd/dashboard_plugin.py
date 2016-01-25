@@ -59,7 +59,11 @@ class ONDDDashboardPlugin(DashboardPlugin):
         initial_data = read_ondd_setup()
         preset = match_preset(initial_data)
         ondd_client = request.app.supervisor.exts.ondd
+        snr_min = request.app.config.get('ondd.snr_min', 0.2)
+        snr_max = request.app.config.get('ondd.snr_max', 0.9)
         return dict(status=ondd_client.get_status(),
                     form=ONDDForm(initial_data),
                     files=ondd_client.get_transfers(),
+                    SNR_MIN=snr_min,
+                    SNR_MAX=snr_max,
                     selected_preset=preset)

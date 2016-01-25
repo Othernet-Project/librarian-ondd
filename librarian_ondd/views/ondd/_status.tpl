@@ -1,11 +1,11 @@
 <%namespace name="ui" file="/ui/widgets.tpl"/>
 
 <%
-    SNR_MAX = 1.6
     BRATE_MAX = 100000.0
     bitrate = th.get_bitrate(status)
     snr = status['snr']
-    snr_pct = round(snr / SNR_MAX * 100)
+    snr_max_delta = SNR_MAX - SNR_MIN
+    snr_pct = round(max(snr - SNR_MIN, 0) / snr_max_delta * 100)
     bitrate_pct = round(bitrate / BRATE_MAX * 100)
 
     has_tuner = th.has_tuner()
