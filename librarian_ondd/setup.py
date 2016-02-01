@@ -32,7 +32,10 @@ def has_invalid_config():
 
 def setup_ondd_form():
     ondd_client = request.app.supervisor.exts.ondd
-    return dict(status=ondd_client.get_status(), form=ONDDForm())
+    snr_min = request.app.config.get('ondd.snr_min', 0.2)
+    snr_max = request.app.config.get('ondd.snr_max', 0.9)
+    return dict(status=ondd_client.get_status(), form=ONDDForm(),
+                SNR_MIN=snr_min, SNR_MAX=snr_max)
 
 
 def setup_ondd():
