@@ -44,6 +44,8 @@ def setup_ondd():
 
     form = ONDDForm(request.forms)
     form_valid = form.is_valid()
+    snr_min = request.app.config.get('ondd.snr_min', 0.2)
+    snr_max = request.app.config.get('ondd.snr_max', 0.9)
 
     if form_valid:
         # Store full settings
@@ -51,17 +53,20 @@ def setup_ondd():
         request.app.supervisor.exts.setup.append({'ondd': form.processed_data})
 
         if is_test_mode:
-            return dict(successful=False, form=form, status=ondd_client.get_status(),
+            return dict(successful=False, form=form,
+                        status=ondd_client.get_status(),
                         # Translators, shown when tuner settings are updated
                         # during setup wizard step.
-                        message=_('Tuner settings have been updated'))
+                        message=_('Tuner settings have been updated'),
+                        SNR_MIN=snr_min, SNR_MAX=snr_max)
         return dict(successful=True)
 
     # Form is not valid
-
     if is_test_mode:
         # We only do something about this in test mode
-        return dict(successful=False, form=form, status=ondd_client.get_status())
+        return dict(successful=False, form=form,
+                    status=ondd_client.get_status(),
+                    SNR_MIN=snr_min, SNR_MAX=snr_max)
 
     request.app.supervisor.exts.setup.append({'ondd': {}})
     return dict(successful=True)
