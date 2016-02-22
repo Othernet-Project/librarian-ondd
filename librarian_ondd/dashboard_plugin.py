@@ -59,9 +59,17 @@ class ONDDDashboardPlugin(DashboardPlugin):
         ondd_client = request.app.supervisor.exts.ondd
         snr_min = request.app.config.get('ondd.snr_min', 0.2)
         snr_max = request.app.config.get('ondd.snr_max', 0.9)
+        default = {'cache_min': 0,
+                   'cache_max': 0,
+                   'cache_free': 0,
+                   'cache_percentage': 0}
+        cache_status = request.app.supervisor.exts.cache.get('ondd.cache')
+        cache_status = cache_status or default
         return dict(status=ondd_client.get_status(),
                     form=ONDDForm(initial_data),
                     files=ondd_client.get_transfers(),
                     SNR_MIN=snr_min,
                     SNR_MAX=snr_max,
-                    selected_preset=preset)
+                    selected_preset=preset,
+                    **cache_status)
+
