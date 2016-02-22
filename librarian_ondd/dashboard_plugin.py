@@ -33,8 +33,6 @@ def get_bitrate(status):
     return 0
 
 
-
-
 def match_preset(data):
     if not data:
         return 0
