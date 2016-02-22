@@ -16,55 +16,74 @@
  * containing customized values _before_ this module.
  */
 /* line 8, ../../../src/scss/ondd.scss */
+.bar {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 1rem;
+  background: white;
+}
+
+/* line 16, ../../../src/scss/ondd.scss */
+.bar-indicator {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #089bd2;
+}
+
+/* line 25, ../../../src/scss/ondd.scss */
 .ondd-status .signal-status {
   float: left;
   width: 40%;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 8, ../../../src/scss/ondd.scss */
+  /* line 25, ../../../src/scss/ondd.scss */
   .ondd-status .signal-status {
     width: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
-  /* line 8, ../../../src/scss/ondd.scss */
+  /* line 25, ../../../src/scss/ondd.scss */
   .ondd-status .signal-status {
     float: none;
     width: auto;
   }
 }
 
-/* line 23, ../../../src/scss/ondd.scss */
+/* line 40, ../../../src/scss/ondd.scss */
 .ondd-settings {
   width: 40%;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 23, ../../../src/scss/ondd.scss */
+  /* line 40, ../../../src/scss/ondd.scss */
   .ondd-settings {
     width: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
-  /* line 23, ../../../src/scss/ondd.scss */
+  /* line 40, ../../../src/scss/ondd.scss */
   .ondd-settings {
     width: auto;
   }
 }
 
-/* line 35, ../../../src/scss/ondd.scss */
+/* line 52, ../../../src/scss/ondd.scss */
 .ondd-status .right {
   margin-left: 40%;
   padding-left: 2rem;
   max-width: 400px;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 35, ../../../src/scss/ondd.scss */
+  /* line 52, ../../../src/scss/ondd.scss */
   .ondd-status .right {
     margin-left: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
-  /* line 35, ../../../src/scss/ondd.scss */
+  /* line 52, ../../../src/scss/ondd.scss */
   .ondd-status .right {
     margin-left: 0;
     padding-left: 0;
@@ -72,26 +91,26 @@
   }
 }
 
-/* line 52, ../../../src/scss/ondd.scss */
+/* line 69, ../../../src/scss/ondd.scss */
 .ondd-status-panel {
   margin-bottom: 1rem;
 }
 
-/* line 56, ../../../src/scss/ondd.scss */
+/* line 73, ../../../src/scss/ondd.scss */
 .ondd-file-list {
   margin-bottom: 1rem;
 }
-/* line 60, ../../../src/scss/ondd.scss */
+/* line 77, ../../../src/scss/ondd.scss */
 .ondd-file-list li {
   white-space: nowrap;
   padding: 0.5rem 0;
   border-bottom: 1px solid #ddd;
 }
-/* line 70, ../../../src/scss/ondd.scss */
+/* line 87, ../../../src/scss/ondd.scss */
 .ondd-file-list li:first-child {
   border-top: 1px solid #ddd;
 }
-/* line 74, ../../../src/scss/ondd.scss */
+/* line 91, ../../../src/scss/ondd.scss */
 .ondd-file-list li .o-progress-mini {
   margin-right: 1rem;
 }
