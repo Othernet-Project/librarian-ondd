@@ -29,10 +29,10 @@ def set_settings():
     preset = request.params.get('preset')
     if not preset:
         return dict(
-            form = ONDDForm(request.forms),
+            form=ONDDForm(request.forms),
             # Translators, message shown when user does not select a satellite
             # preset nor 'Custom' option to enter custom data.
-            message = _("Please select a satellite or select 'Custom'"))
+            message=_("Please select a satellite or select 'Custom'"))
     try:
         preset = int(preset)
     except (TypeError, ValueError):
