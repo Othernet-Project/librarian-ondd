@@ -20,11 +20,12 @@
   display: block;
   position: relative;
   width: 100%;
-  height: 1rem;
+  height: 0.3rem;
   background: white;
+  margin-bottom: 0.5rem;
 }
 
-/* line 16, ../../../src/scss/ondd.scss */
+/* line 17, ../../../src/scss/ondd.scss */
 .bar-indicator {
   display: block;
   position: absolute;
@@ -34,56 +35,61 @@
   background: #089bd2;
 }
 
-/* line 25, ../../../src/scss/ondd.scss */
+/* line 26, ../../../src/scss/ondd.scss */
+.percentage-lcd {
+  margin-bottom: 1rem;
+}
+
+/* line 30, ../../../src/scss/ondd.scss */
 .ondd-status .signal-status {
   float: left;
   width: 40%;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 25, ../../../src/scss/ondd.scss */
+  /* line 30, ../../../src/scss/ondd.scss */
   .ondd-status .signal-status {
     width: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
-  /* line 25, ../../../src/scss/ondd.scss */
+  /* line 30, ../../../src/scss/ondd.scss */
   .ondd-status .signal-status {
     float: none;
     width: auto;
   }
 }
 
-/* line 40, ../../../src/scss/ondd.scss */
+/* line 45, ../../../src/scss/ondd.scss */
 .ondd-settings {
   width: 40%;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 40, ../../../src/scss/ondd.scss */
+  /* line 45, ../../../src/scss/ondd.scss */
   .ondd-settings {
     width: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
-  /* line 40, ../../../src/scss/ondd.scss */
+  /* line 45, ../../../src/scss/ondd.scss */
   .ondd-settings {
     width: auto;
   }
 }
 
-/* line 52, ../../../src/scss/ondd.scss */
+/* line 57, ../../../src/scss/ondd.scss */
 .ondd-status .right {
   margin-left: 40%;
   padding-left: 2rem;
   max-width: 400px;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 52, ../../../src/scss/ondd.scss */
+  /* line 57, ../../../src/scss/ondd.scss */
   .ondd-status .right {
     margin-left: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
-  /* line 52, ../../../src/scss/ondd.scss */
+  /* line 57, ../../../src/scss/ondd.scss */
   .ondd-status .right {
     margin-left: 0;
     padding-left: 0;
@@ -91,26 +97,26 @@
   }
 }
 
-/* line 69, ../../../src/scss/ondd.scss */
+/* line 74, ../../../src/scss/ondd.scss */
 .ondd-status-panel {
   margin-bottom: 1rem;
 }
 
-/* line 73, ../../../src/scss/ondd.scss */
+/* line 78, ../../../src/scss/ondd.scss */
 .ondd-file-list {
   margin-bottom: 1rem;
 }
-/* line 77, ../../../src/scss/ondd.scss */
+/* line 82, ../../../src/scss/ondd.scss */
 .ondd-file-list li {
   white-space: nowrap;
   padding: 0.5rem 0;
   border-bottom: 1px solid #ddd;
 }
-/* line 87, ../../../src/scss/ondd.scss */
+/* line 92, ../../../src/scss/ondd.scss */
 .ondd-file-list li:first-child {
   border-top: 1px solid #ddd;
 }
-/* line 91, ../../../src/scss/ondd.scss */
+/* line 96, ../../../src/scss/ondd.scss */
 .ondd-file-list li .o-progress-mini {
   margin-right: 1rem;
 }

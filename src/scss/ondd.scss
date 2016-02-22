@@ -9,8 +9,9 @@ $ondd-too-wide: 1000px;
     display: block;
     position: relative;
     width: 100%;
-    height: 1rem;
+    height: 0.3rem;
     background: white;
+    margin-bottom: 0.5rem;
 }
 
 .bar-indicator {
@@ -20,6 +21,10 @@ $ondd-too-wide: 1000px;
     top: 0;
     height: 100%;
     background: $o-accent;
+}
+
+.percentage-lcd {
+  margin-bottom: 1rem;
 }
 
 .ondd-status .signal-status {
