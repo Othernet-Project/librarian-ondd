@@ -41,55 +41,38 @@
 }
 
 /* line 30, ../../../src/scss/ondd.scss */
-.ondd-status .signal-status {
+.ondd-status .left {
   float: left;
   width: 40%;
 }
 @media only screen and (min-width: 1000px) {
   /* line 30, ../../../src/scss/ondd.scss */
-  .ondd-status .signal-status {
+  .ondd-status .left {
     width: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
   /* line 30, ../../../src/scss/ondd.scss */
-  .ondd-status .signal-status {
+  .ondd-status .left {
     float: none;
     width: auto;
   }
 }
 
 /* line 45, ../../../src/scss/ondd.scss */
-.ondd-settings {
-  width: 40%;
-}
-@media only screen and (min-width: 1000px) {
-  /* line 45, ../../../src/scss/ondd.scss */
-  .ondd-settings {
-    width: 400px;
-  }
-}
-@media only screen and (max-width: 786px) {
-  /* line 45, ../../../src/scss/ondd.scss */
-  .ondd-settings {
-    width: auto;
-  }
-}
-
-/* line 57, ../../../src/scss/ondd.scss */
 .ondd-status .right {
   margin-left: 40%;
   padding-left: 2rem;
   max-width: 400px;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 57, ../../../src/scss/ondd.scss */
+  /* line 45, ../../../src/scss/ondd.scss */
   .ondd-status .right {
     margin-left: 400px;
   }
 }
 @media only screen and (max-width: 786px) {
-  /* line 57, ../../../src/scss/ondd.scss */
+  /* line 45, ../../../src/scss/ondd.scss */
   .ondd-status .right {
     margin-left: 0;
     padding-left: 0;
@@ -97,26 +80,26 @@
   }
 }
 
-/* line 74, ../../../src/scss/ondd.scss */
+/* line 62, ../../../src/scss/ondd.scss */
 .ondd-status-panel {
   margin-bottom: 1rem;
 }
 
-/* line 78, ../../../src/scss/ondd.scss */
+/* line 66, ../../../src/scss/ondd.scss */
 .ondd-file-list {
   margin-bottom: 1rem;
 }
-/* line 82, ../../../src/scss/ondd.scss */
+/* line 70, ../../../src/scss/ondd.scss */
 .ondd-file-list li {
   white-space: nowrap;
   padding: 0.5rem 0;
   border-bottom: 1px solid #ddd;
 }
-/* line 92, ../../../src/scss/ondd.scss */
+/* line 80, ../../../src/scss/ondd.scss */
 .ondd-file-list li:first-child {
   border-top: 1px solid #ddd;
 }
-/* line 96, ../../../src/scss/ondd.scss */
+/* line 84, ../../../src/scss/ondd.scss */
 .ondd-file-list li .o-progress-mini {
   margin-right: 1rem;
 }

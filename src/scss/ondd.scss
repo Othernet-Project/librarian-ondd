@@ -27,7 +27,7 @@ $ondd-too-wide: 1000px;
   margin-bottom: 1rem;
 }
 
-.ondd-status .signal-status {
+.ondd-status .left {
   // Basic geometry
   float: left;
   width: 40%;
@@ -38,18 +38,6 @@ $ondd-too-wide: 1000px;
 
   @include narrower-than($ondd-cutoff) {
     float: none;
-    width: auto;
-  }
-}
-
-.ondd-settings {
-  width: 40%;
-
-  @include wider-than($ondd-too-wide) {
-    width: 400px;
-  }
-
-  @include narrower-than($ondd-cutoff) {
     width: auto;
   }
 }
