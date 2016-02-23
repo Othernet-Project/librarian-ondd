@@ -62,7 +62,8 @@ class ONDDDashboardPlugin(DashboardPlugin):
         default = {'cache_min': 0,
                    'cache_max': 0,
                    'cache_free': 0,
-                   'cache_percentage': 0}
+                   'free_percentage': 0,
+                   'used_percentage': 100}
         cache_status = request.app.supervisor.exts.cache.get('ondd.cache')
         cache_status = cache_status or default
         return dict(status=ondd_client.get_status(),

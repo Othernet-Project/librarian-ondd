@@ -62,7 +62,8 @@ def show_cache_status():
     default = {'cache_min': 0,
                'cache_max': 0,
                'cache_free': 0,
-               'cache_percentage': 0}
+               'free_percentage': 0,
+               'used_percentage': 100}
     cache_status = request.app.supervisor.exts.cache.get('ondd.cache')
     return cache_status or default
 
