@@ -2,7 +2,7 @@
 (function(window, $) {
   var CHECK_INTERVAL, cacheContainer, cacheUrl, section, updateCache;
   CHECK_INTERVAL = 3000;
-  cacheContainer = $('#ondd-cache');
+  cacheContainer = $('#ondd-cache-status');
   section = cacheContainer.parents('.o-collapsible-section');
   cacheUrl = cacheContainer.data('url');
   updateCache = function() {

@@ -2,7 +2,7 @@
 
   CHECK_INTERVAL = 3000
 
-  cacheContainer = $ '#ondd-cache'
+  cacheContainer = $ '#ondd-cache-status'
   section = cacheContainer.parents '.o-collapsible-section'
   cacheUrl = cacheContainer.data 'url'
 
