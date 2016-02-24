@@ -5,17 +5,11 @@
   errorMessage = templates.onddSettingsError
 
 
-  removeMessage = () ->
-    (onddForm.find '.o-form-message').slideUp () ->
-      ($ this).remove()
-
-
   submitData = (data) ->
     res = $.post url, data
     res.done (data) ->
       onddForm.html data
       ($ window).trigger 'transponder-updated'
-      setTimeout removeMessage, 5000
     res.fail () ->
       onddForm.prepend errorMessage
 
