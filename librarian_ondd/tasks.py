@@ -7,15 +7,20 @@ def query_cache_storage_status(supervisor):
     cache_status = supervisor.exts.ondd.get_cache_storage()
     cache_free = cache_status['free']
     try:
-        percentage = cache_free * 100.0 / abs(cache_max - cache_min)
+        free_percentage = cache_free * 100.0 / abs(cache_max - cache_min)
     except ZeroDivisionError:
-        percentage = 0
+        free_percentage = 0
+
+    if free_percentage > 100:
+        used_percentage = 0
+    else:
+        used_percentage = 100 - free_percentage
 
     cache_status = dict(cache_min=cache_min,
                         cache_max=cache_max,
                         cache_free=cache_free,
-                        free_percentage="{0:.2f}".format(percentage),
-                        used_percentage="{0:.2f}".format(100 - percentage))
+                        free_percentage="{0:.2f}".format(free_percentage),
+                        used_percentage="{0:.2f}".format(used_percentage))
     supervisor.exts.cache.set('ondd.cache', cache_status)
     if cache_free <= cache_min:
         db = supervisor.exts.databases.notifications
