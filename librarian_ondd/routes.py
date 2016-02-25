@@ -59,13 +59,12 @@ def show_file_list():
 
 @view('ondd/_cache_status')
 def show_cache_status():
-    default = {'cache_min': 0,
-               'cache_max': 0,
-               'cache_free': 0,
-               'free_percentage': 0,
-               'used_percentage': 100}
+    cache_max = request.app.config['ondd.cache_quota']
+    default = {'total': cache_max,
+               'free': cache_max,
+               'used': 0}
     cache_status = request.app.supervisor.exts.cache.get('ondd.cache')
-    return cache_status or default
+    return dict(cache_status=cache_status or default)
 
 
 def routes(config):
