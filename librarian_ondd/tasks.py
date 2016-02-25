@@ -29,7 +29,7 @@ def query_cache_storage_status(supervisor):
     virt_free -= cache_foreign
 
     # Sanity check
-    assert cache_virt_free + cache_used == cache_max
+    assert virt_free + cache_used == cache_max
 
     cache_status = dict(total=cache_max,
                         free=virt_free,
