@@ -52,6 +52,7 @@ def query_cache_storage_status(supervisor):
           'Please ask the administrator to take action.'),
         category='ondd_cache',
         dismissable=False,
+        priority=supervisor.exts.notifications.CRITICAL,
         group='guest',
         db=db)
     supervisor.exts.notifications.send(
@@ -62,5 +63,6 @@ def query_cache_storage_status(supervisor):
           'content from the internal storage to an external one.'),
         category='ondd_cache',
         dismissable=False,
+        priority=supervisor.exts.notifications.CRITICAL,
         group='superuser',
         db=db)
