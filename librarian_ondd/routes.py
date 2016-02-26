@@ -62,7 +62,8 @@ def show_cache_status():
     cache_max = request.app.config['ondd.cache_quota']
     default = {'total': cache_max,
                'free': cache_max,
-               'used': 0}
+               'used': 0,
+               'alert': False}
     cache_status = request.app.supervisor.exts.cache.get('ondd.cache')
     return dict(cache_status=cache_status or default)
 

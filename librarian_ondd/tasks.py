@@ -7,6 +7,7 @@ def query_cache_storage_status(supervisor):
     cache_status = supervisor.exts.ondd.get_cache_storage()
     real_free = cache_status['free']
     real_used = cache_status['used']
+    cache_critical = real_free < cache_min
 
     # First of all, since used space is real, but capacity is virtual
     # (cache_max), we need to make sure used space does not exceed the
@@ -33,10 +34,11 @@ def query_cache_storage_status(supervisor):
 
     cache_status = dict(total=cache_max,
                         free=virt_free,
-                        used=cache_used)
+                        used=cache_used,
+                        alert=cache_critical)
     supervisor.exts.cache.set('ondd.cache', cache_status)
 
-    if real_free > cache_min:
+    if not cache_critical:
         # We have enough free space, so bail
         return
 

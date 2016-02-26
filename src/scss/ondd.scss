@@ -5,7 +5,7 @@
 $ondd-cutoff: 786px;
 $ondd-too-wide: 1000px;
 
-.bar {
+.ondd-cache-bar {
     display: block;
     position: relative;
     width: 100%;
@@ -14,7 +14,7 @@ $ondd-too-wide: 1000px;
     margin-bottom: 0.5rem;
 }
 
-.bar-indicator {
+.ondd-cache-bar-bar-indicator {
     display: block;
     position: absolute;
     left: 0;
@@ -23,8 +23,16 @@ $ondd-too-wide: 1000px;
     background: $o-accent;
 }
 
-.percentage-lcd {
+.ondd-cache-bar-percentage-lcd {
   margin-bottom: 1rem;
+}
+
+.ondd-cache-alert {
+  background: $o-critical;
+  color: $o-negative-base;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+  font-weight: bold; 
 }
 
 .ondd-status .left {

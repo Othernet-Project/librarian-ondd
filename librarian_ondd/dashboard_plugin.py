@@ -62,7 +62,8 @@ class ONDDDashboardPlugin(DashboardPlugin):
         cache_max = request.app.config['ondd.cache_quota']
         default = {'total': cache_max,
                    'free': cache_max,
-                   'used': 0}
+                   'used': 0,
+                   'alert': None}
         cache_status = request.app.supervisor.exts.cache.get('ondd.cache')
         cache_status = cache_status or default
         return dict(status=ondd_client.get_status(),
