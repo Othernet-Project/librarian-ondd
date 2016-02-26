@@ -5,7 +5,29 @@
 $ondd-cutoff: 786px;
 $ondd-too-wide: 1000px;
 
-.ondd-status {
+.bar {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 0.3rem;
+    background: white;
+    margin-bottom: 0.5rem;
+}
+
+.bar-indicator {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: $o-accent;
+}
+
+.percentage-lcd {
+  margin-bottom: 1rem;
+}
+
+.ondd-status .left {
   // Basic geometry
   float: left;
   width: 40%;
@@ -20,7 +42,7 @@ $ondd-too-wide: 1000px;
   }
 }
 
-.ondd-settings {
+.ondd-status .right {
   // Basic geometry
   margin-left: 40%;
   padding-left: 2rem;

@@ -29,10 +29,10 @@ def set_settings():
     preset = request.params.get('preset')
     if not preset:
         return dict(
-            form = ONDDForm(request.forms),
+            form=ONDDForm(request.forms),
             # Translators, message shown when user does not select a satellite
             # preset nor 'Custom' option to enter custom data.
-            message = _("Please select a satellite or select 'Custom'"))
+            message=_("Please select a satellite or select 'Custom'"))
     try:
         preset = int(preset)
     except (TypeError, ValueError):
@@ -57,6 +57,16 @@ def show_file_list():
     return dict(files=ondd_client.get_transfers())
 
 
+@view('ondd/_cache_status')
+def show_cache_status():
+    cache_max = request.app.config['ondd.cache_quota']
+    default = {'total': cache_max,
+               'free': cache_max,
+               'used': 0}
+    cache_status = request.app.supervisor.exts.cache.get('ondd.cache')
+    return dict(cache_status=cache_status or default)
+
+
 def routes(config):
     skip_plugins = config['app.skip_plugins']
     return (
@@ -64,6 +74,8 @@ def routes(config):
          'GET', '/ondd/status/', dict(unlocked=True, skip=skip_plugins)),
         ('ondd:files', show_file_list,
          'GET', '/ondd/files/', dict(unlocked=True, skip=skip_plugins)),
+        ('ondd:cache_status', show_cache_status,
+         'GET', '/ondd/cache/', dict(unlocked=True, skip=skip_plugins)),
         ('ondd:settings', show_settings_form,
          'GET', '/ondd/settings/', dict(unlocked=True)),
         ('ondd:settings', set_settings,
