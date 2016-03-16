@@ -44,7 +44,7 @@
             <span class="ondd-status-icons">
                 ${self.status_indicator('tuner', 'tuner', has_tuner)}
                 ${self.status_indicator('lock', 'signal', has_lock)}
-                ${self.status_indicator('service', 'download', has_service)}
+                ${self.status_indicator('service', 'download-bar', has_service)}
             </span>
         </p>
     </div>

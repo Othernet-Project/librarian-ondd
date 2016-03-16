@@ -32,7 +32,7 @@ def truncate_name(name, max_size=50, separator='...'):
     <ul>
         % for f in files:
             <li>
-            ${widgets.progress_mini(f['percentage'], icon='download')}
+            ${widgets.progress_mini(f['percentage'], icon='download-bar')}
             % if f['filename']:
                 ${truncate_name(f['filename'])} 
                 % if f['complete']:
