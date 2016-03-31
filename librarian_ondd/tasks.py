@@ -38,13 +38,15 @@ def query_cache_storage_status(supervisor):
                         alert=cache_critical)
     supervisor.exts.cache.set('ondd.cache', cache_status)
 
+    # First clean any notifications
+    db = supervisor.exts.databases.notifications
+    supervisor.exts.notifications.delete_by_category('ondd_cache', db)
+
     if not cache_critical:
         # We have enough free space, so bail
         return
 
     # Now we also need to warn the user about low cache capacity
-    db = supervisor.exts.databases.notifications
-    supervisor.exts.notifications.delete_by_category('ondd_cache', db)
     supervisor.exts.notifications.send(
         # Translators, notification displayed when internal cache storage
         # is running out of disk space
