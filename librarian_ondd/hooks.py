@@ -21,9 +21,11 @@ def initialize(supervisor):
                           method='POST',
                           test=has_invalid_config)
 
+
+def post_start(supervisor):
+    query_cache_storage_status(supervisor)
     refresh_rate = supervisor.config['ondd.cache_refresh_rate']
     supervisor.exts.tasks.schedule(query_cache_storage_status,
                                    args=(supervisor,),
                                    delay=refresh_rate,
                                    periodic=True)
-
